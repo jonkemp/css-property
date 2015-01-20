@@ -1,0 +1,22 @@
+{
+  "name": "css-property",
+  "version": "1.0.0",
+  "description": "CSS property constructor.",
+  "main": "index.js",
+  "scripts": {
+    "test": "'echo \"Error: no test specified\" && exit 1'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonkemp/css-property"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Jonathan Kemp <kempdogg@gmail.com> (http://jonkemp.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonkemp/css-property/issues"
+  },
+  "homepage": "https://github.com/jonkemp/css-property"
+}
