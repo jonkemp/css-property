@@ -4,19 +4,29 @@
   "description": "CSS property constructor.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jonkemp/css-property"
   },
   "keywords": [
-    "css"
+    "inline",
+    "css",
+    "html",
+    "email"
   ],
   "author": "Jonathan Kemp <kempdogg@gmail.com> (http://jonkemp.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jonkemp/css-property/issues"
   },
-  "homepage": "https://github.com/jonkemp/css-property"
+  "homepage": "https://github.com/jonkemp/css-property",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0",
+    "gulp-mocha": "^2.0.0",
+    "mocha": "^2.1.0",
+    "style-selector": "^1.0.0"
+  }
 }
