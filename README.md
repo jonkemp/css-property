@@ -1,5 +1,7 @@
 # css-property
 
+[![NPM](https://nodei.co/npm/css-property.png?downloads=true)](https://nodei.co/npm/css-property/)
+
 > CSS property constructor
 
 ## Install
