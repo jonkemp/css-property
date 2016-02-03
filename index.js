@@ -12,11 +12,11 @@
 function compare(a, b) {
     for (var i = 0; i < 4; i++) {
         if (a[i] === b[i]) {
-             continue;
-         }
+            continue;
+        }
         if (a[i] > b[i]) {
-             return a;
-         }
+            return a;
+        }
         return b;
     }
 
