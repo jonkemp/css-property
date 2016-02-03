@@ -9,19 +9,19 @@
  * @api public
  */
 
-function compare (a, b) {
-     for (var i = 0; i < 4; i++) {
-         if (a[i] === b[i]) {
+function compare(a, b) {
+    for (var i = 0; i < 4; i++) {
+        if (a[i] === b[i]) {
              continue;
          }
-         if (a[i] > b[i]) {
+        if (a[i] > b[i]) {
              return a;
          }
-         return b;
-     }
+        return b;
+    }
 
-     return b;
- }
+    return b;
+}
 
 /**
  * CSS property constructor.
