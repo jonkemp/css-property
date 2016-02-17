@@ -1,4 +1,4 @@
-# css-property
+# css-property [![Build Status](https://travis-ci.org/jonkemp/css-property.svg?branch=master)](https://travis-ci.org/jonkemp/css-property) [![Coverage Status](https://coveralls.io/repos/jonkemp/css-property/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonkemp/css-property?branch=master)
 
 [![NPM](https://nodei.co/npm/css-property.png?downloads=true)](https://nodei.co/npm/css-property/)
 
