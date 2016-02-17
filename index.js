@@ -10,7 +10,9 @@
  */
 
 function compare(a, b) {
-    for (var i = 0; i < 4; i++) {
+    var i;
+
+    for (i = 0; i < 4; i++) {
         if (a[i] === b[i]) {
             continue;
         }
