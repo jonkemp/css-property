@@ -12,7 +12,21 @@ Install with [npm](https://npmjs.org/package/css-property)
 npm install --save css-property
 ```
 
-## Usage
+## Usage v2
+
+```js
+var selector = require('style-selector'),
+    property = require('css-property'),
+    bodySelector = selector('body'),
+    prop = property('font-family', 'Arial', bodySelector);
+
+console.log(prop.prop);             // font-family
+console.log(prop.value);            // Arial
+console.log(prop.selector.text);    // body
+console.log(prop.toString());       // font-family: Arial;
+```
+
+## Usage v1
 
 ```js
 var Selector = require('style-selector'),
@@ -26,7 +40,47 @@ console.log(prop.selector.text);    // body
 console.log(prop.toString());       // font-family: Arial;
 ```
 
-## API
+## v2 API
+
+### property(prop, value, selector)
+
+#### prop
+
+Type: `String`  
+Default: `none`
+
+Property
+
+#### value
+
+Type: `String`  
+Default: `none`
+
+Value
+
+#### selector
+
+Type: `Object`  
+Default: `none`
+
+Selector the property originates from.
+
+### property.compare(property)
+
+Compares with another Property based on Selector#specificity.
+
+#### property
+
+Type: `Object`  
+Default: `none`
+
+Property to compare.
+
+#### property.toString()
+
+Returns CSS property.
+
+## v1 API
 
 ### Property(prop, value, selector)
 
