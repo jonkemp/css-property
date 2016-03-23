@@ -9,7 +9,7 @@
  * @api public
  */
 
-function compare(a, b) {
+function compareSpecificity(a, b) {
     var i;
 
     for (i = 0; i < 4; i++) {
@@ -34,37 +34,43 @@ function compare(a, b) {
  * @api public
  */
 
-function Property(prop, value, selector) {
-    this.prop = prop;
-    this.value = value;
-    this.selector = selector;
-}
+module.exports = function (prop, value, selector) {
+    var o = {},
 
-/**
- * Compares with another Property based on Selector#specificity.
- *
- * @api public
- */
+        /**
+         * Compares with another Property based on Selector#specificity.
+         *
+         * @api public
+         */
 
-Property.prototype.compare = function (property) {
-    var a = this.selector.specificity(),
-        b = property.selector.specificity(),
-        winner = compare(a, b);
+        compare = function (property) {
+            var a = selector.specificity(),
+                b = property.selector.specificity(),
+                winner = compareSpecificity(a, b);
 
-    if (winner === a && a !== b) {
-        return this;
-    }
-    return property;
+            if (winner === a && a !== b) {
+                return o;
+            }
+            return property;
+        },
+
+        /**
+         * Returns CSS property
+         *
+         * @api public
+         */
+
+        toString = function () {
+            return prop + ': ' + value.replace(/['"]+/g, '') + ';';
+        };
+
+    o = {
+        prop: prop,
+        value: value,
+        selector: selector,
+        compare: compare,
+        toString: toString
+    };
+
+    return o;
 };
-
-/**
- * Returns CSS property
- *
- * @api public
- */
-
-Property.prototype.toString = function () {
-    return this.prop + ': ' + this.value.replace(/['"]+/g, '') + ';';
-};
-
-module.exports = exports = Property;
