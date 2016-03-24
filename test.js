@@ -35,4 +35,14 @@ describe('property.compare', function () {
             winner = propA.compare(propB);
         assert.equal(winner.selector.text, 'h1');
     });
+
+    it('should return the second of two important properties', function () {
+        var divSelector = selector('div'),
+            propA = property('color', 'black', divSelector),
+            propB = property('color', 'blue', divSelector),
+            winner = propA.compare(propB);
+        assert.equal(winner.selector.text, 'div');
+        assert.equal(winner.prop, 'color');
+        assert.equal(winner.value, 'blue');
+    });
 });
