@@ -1,6 +1,6 @@
 'use strict';
 
- /**
+/**
  * Compares two specificity vectors, returning the winning one.
  *
  * @param {Array} vector a
