@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Compares two specificity vectors, returning the winning one.
  *
@@ -10,9 +8,7 @@
  */
 
 function compareSpecificity(a, b) {
-    var i;
-
-    for (i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
         if (a[i] === b[i]) {
             continue;
         }
@@ -34,42 +30,38 @@ function compareSpecificity(a, b) {
  * @api public
  */
 
-module.exports = function (prop, value, selector) {
-    var o = {},
+module.exports = (prop, value, selector) => {
+    let o = {};
 
-        /**
-         * Compares with another Property based on Selector#specificity.
-         *
-         * @api public
-         */
+    /**
+     * Compares with another Property based on Selector#specificity.
+     *
+     * @api public
+     */
 
-        compare = function (property) {
-            var a = selector.specificity(),
-                b = property.selector.specificity(),
-                winner = compareSpecificity(a, b);
+    const compare = property => {
+        const a = selector.specificity(), b = property.selector.specificity(), winner = compareSpecificity(a, b);
 
-            if (winner === a && a !== b) {
-                return o;
-            }
-            return property;
-        },
+        if (winner === a && a !== b) {
+            return o;
+        }
+        return property;
+    };
 
-        /**
-         * Returns CSS property
-         *
-         * @api public
-         */
+    /**
+     * Returns CSS property
+     *
+     * @api public
+     */
 
-        toString = function () {
-            return prop + ': ' + value.replace(/['"]+/g, '') + ';';
-        };
+    const toString = () => `${prop}: ${value.replace(/['"]+/g, '')};`;
 
     o = {
-        prop: prop,
-        value: value,
-        selector: selector,
-        compare: compare,
-        toString: toString
+        prop,
+        value,
+        selector,
+        compare,
+        toString
     };
 
     return o;

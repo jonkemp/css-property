@@ -1,15 +1,13 @@
 /*eslint-disable */
 
-'use strict';
+const assert = require('assert');
+const selector = require('style-selector');
+const property = require('./');
 
-var assert = require('assert'),
-    selector = require('style-selector'),
-    property = require('./');
-
-describe('property', function () {
-    it('should return an object', function () {
-        var bodySelector = selector('body'),
-            prop = property('font-family', 'Arial', bodySelector);
+describe('property', () => {
+    it('should return an object', () => {
+        const bodySelector = selector('body');
+        const prop = property('font-family', 'Arial', bodySelector);
         assert(prop);
         assert.equal(prop.prop, 'font-family');
         assert.equal(prop.value, 'Arial');
@@ -18,29 +16,29 @@ describe('property', function () {
     });
 });
 
-describe('property.toString', function () {
-    it('should return a css declaration', function () {
-        var bodySelector = selector('body'),
-            prop = property('font-family', 'Arial', bodySelector);
+describe('property.toString', () => {
+    it('should return a css declaration', () => {
+        const bodySelector = selector('body');
+        const prop = property('font-family', 'Arial', bodySelector);
         assert.equal(prop.toString(), 'font-family: Arial;');
     });
 });
 
-describe('property.compare', function () {
-    it('should return the more specific of two properties', function () {
-        var bodySelector = selector('body'),
-            h1Selector = selector('h1'),
-            propA = property('font-family', 'Arial', bodySelector),
-            propB = property('color', 'blue', h1Selector),
-            winner = propA.compare(propB);
+describe('property.compare', () => {
+    it('should return the more specific of two properties', () => {
+        const bodySelector = selector('body');
+        const h1Selector = selector('h1');
+        const propA = property('font-family', 'Arial', bodySelector);
+        const propB = property('color', 'blue', h1Selector);
+        const winner = propA.compare(propB);
         assert.equal(winner.selector.text, 'h1');
     });
 
-    it('should return the second of two important properties', function () {
-        var divSelector = selector('div'),
-            propA = property('color', 'black', divSelector),
-            propB = property('color', 'blue', divSelector),
-            winner = propA.compare(propB);
+    it('should return the second of two important properties', () => {
+        const divSelector = selector('div');
+        const propA = property('color', 'black', divSelector);
+        const propB = property('color', 'blue', divSelector);
+        const winner = propA.compare(propB);
         assert.equal(winner.selector.text, 'div');
         assert.equal(winner.prop, 'color');
         assert.equal(winner.value, 'blue');
